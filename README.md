@@ -1,24 +1,58 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## bands テーブル
 
-Things you may want to cover:
+| Column               | Type   | Options                  |
+| -------------------- | ------ | ------------------------ |
+| bandname             | string | null: false              |
+| email                | string | null: false, unique:true |
+| encrypted_password   | string | null: false              |
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :bandposts
 
-* Database creation
 
-* Database initialization
+## solos テーブル
 
-* How to run the test suite
+| Column               | Type         | Options                        |
+| -------------------- | ------------ | ------------------------------ |
+| nickname             | string       | null: false                    |
+| email                | string       | null: false                    |
+| encrypted_password   | string       | null: false                    |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
 
-* Deployment instructions
+- has_many :soloposts
 
-* ...
+## bandposts テーブル
+
+| Column                | Type      | Options                        |
+| --------------------- | --------- | ------------------------------ |
+| introduction          | text      | null: false                    |
+| genre_id              | integer   | null: false                    |
+| musical_instrument_id | integer   | null: false                    |
+| area_id               | integer   | null: false                    |
+| history               | string    | null: false                    |
+| band                  | reference | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :band
+
+## soloposts テーブル
+
+| Column                | Type      | Options                        |
+| --------------------- | --------- | ------------------------------ |
+| introduction          | text      | null: false                    |
+| genre_id              | integer   | null: false                    |
+| musical_instrument_id | integer   | null: false                    |
+| area_id               | integer   | null: false                    |
+| favorite_band         | string    |                                |
+| history               | string    | null: false                    |
+| solo                  | reference | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :log
