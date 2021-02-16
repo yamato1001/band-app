@@ -55,4 +55,4 @@
 
 ### Association
 
-- belongs_to :log
+- belongs_to :solo
