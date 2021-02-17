@@ -1,6 +1,6 @@
 # README
 
-## bands テーブル
+## bandusers テーブル
 
 | Column               | Type   | Options                  |
 | -------------------- | ------ | ------------------------ |
@@ -14,7 +14,7 @@
 - has_many :bandposts
 
 
-## solos テーブル
+## solousers テーブル
 
 | Column               | Type         | Options                        |
 | -------------------- | ------------ | ------------------------------ |

@@ -1,0 +1,2 @@
+module BandpostsHelper
+end
