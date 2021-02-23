@@ -16,3 +16,43 @@
     </ul>
  </div>
 </div>
+  <%# バンド一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'>バンド一覧</h2>
+    <%= link_to '新規投稿商品', new_bandpost_path, class: "subtitle" %>
+    <ul class='item-lists'>
+  <% @bandposts.each do |bandpost| %>
+    <li class='list'>
+        <%= link_to "#" do %>
+          <div class='item-img-content'>
+            <%= image_tag bandpost.image.variant(resize: '500x500'), class: "item-img" if bandpost.image.attached? %>
+          </div>
+          <div class='band-info'>
+            <h3 class='band-name'>
+              <%= bandpost.bandname %>
+            </h3>
+            <div class='band-info2'>
+              <span><%= bandpost.genre.name %><span>
+              <span><%= bandpost.musical_instrument.name %><span>
+              <span><%= bandpost.area.name %><span>
+            </div>
+          </div>
+        <% end %>
+    </li>
+      
+      <li class='list'>
+          <%= link_to '#' do %>
+          <%= image_tag "item-sample.png", class: "item-img" %>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              バンドを投稿してね！
+            </h3>
+            <span><%= "ジャンル" %><span>
+            <span><%= "募集している楽器" %><span>
+            <span><%= "活動地域" %><span>
+          </div>
+          <% end %>
+      </li>
+  <% end %>
+  </div>
+  <%# /バンド一覧 %>

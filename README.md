@@ -18,11 +18,13 @@
 
 | Column                | Type      | Options                        |
 | --------------------- | --------- | ------------------------------ |
+| bandname              | integer   | null: false                     |
 | introduction          | text      | null: false                    |
 | genre_id              | integer   | null: false                    |
 | musical_instrument_id | integer   | null: false                    |
 | area_id               | integer   | null: false                    |
 | history               | string    | null: false                    |
+| sns_account           | text      |                                |
 | user                  | reference | null: false, foreign_key: true |
 
 ### Association
