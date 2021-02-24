@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   devise_for :users
   get 'bandposts/index'
   root to: "bandposts#index"
-  resources :bandposts, only: [:index, :new, :create, :show]
+  resources :bandposts, only: [:index, :new, :create, :show, :edit, :update]
 end

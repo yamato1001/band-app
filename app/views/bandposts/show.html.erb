@@ -43,7 +43,7 @@
     </div>
     <% end %>
       <% if current_user.id == @bandpost.user_id %>
-        <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
+        <%= link_to "商品の編集", edit_bandpost_path(@bandpost.id), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
       <% end %>

@@ -1,12 +1,11 @@
 <div class="items-sell-contents">
   <div class="items-sell-main">
     <h2 class="items-sell-title">バンドの情報を入力</h2>
-    <%= form_with model: @bandpost, local: true do |f| %>
+    <%= form_with(model: @bandpost, local: true) do |f| %>
 
     
     <%= render 'shared/error_messages', model: f.object %>
     
-
     <%# バンド画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -47,7 +46,7 @@
           バンドの自己紹介
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :introduction, class:"items-text", id:"item-info" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :introduction, class:"items-text", id:"item-info", rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /商品名と商品説明 %>
@@ -85,10 +84,9 @@
     </div>
     <%# /バンドの詳細 %>
 
-    
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%= f.submit "変更する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
