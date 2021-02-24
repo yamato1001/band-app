@@ -1,5 +1,5 @@
 class BandpostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @bandposts = Bandpost.all.order("created_at DESC")
@@ -36,6 +36,12 @@ class BandpostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @bandpost = Bandpost.find(params[:id])
+    @bandpost.destroy
+    redirect_to root_path
   end
 
   private
