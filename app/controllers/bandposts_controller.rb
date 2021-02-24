@@ -19,6 +19,10 @@ class BandpostsController < ApplicationController
 
   end
 
+  def show
+    @bandpost = Bandpost.find(params[:id])
+  end
+
   private
   def bandpost_params
     params.require(:bandpost).permit(:bandname, :introduction, :genre_id, :musical_instrument_id, :area_id, :history, :sns_account, :image, :video ).merge(user_id:current_user.id)
