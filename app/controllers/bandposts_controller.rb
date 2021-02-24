@@ -1,4 +1,6 @@
 class BandpostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+
   def index
     @bandposts = Bandpost.all.order("created_at DESC")
   end
@@ -21,6 +23,19 @@ class BandpostsController < ApplicationController
 
   def show
     @bandpost = Bandpost.find(params[:id])
+  end
+
+  def edit
+    @bandpost = Bandpost.find(params[:id])
+  end
+
+  def update
+    @bandpost = Bandpost.find(params[:id])
+    if @bandpost.update(bandpost_params)
+      redirect_to bandpost_path
+    else
+      render :edit
+    end
   end
 
   private
