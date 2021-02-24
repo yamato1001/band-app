@@ -1,0 +1,51 @@
+<%= render "shared/header" %>
+
+<%# バンドの概要 %>
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @bandpost.bandname %>
+    </h2>
+    <div class="item-explain-box">
+      <span><%= @bandpost.introduction %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">ジャンル</th>
+          <td class="detail-value"><%= @bandpost.genre.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">募集楽器</th>
+          <td class="detail-value"><%= @bandpost.musical_instrument.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">活動地域</th>
+          <td class="detail-value"><%= @bandpost.area.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">活動歴</th>
+          <td class="detail-value"><%= @bandpost.history %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">SNSアカウント</th>
+          <td class="detail-value"><%= @bandpost.sns_account %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="item-img-content">
+      <%= image_tag @bandpost.image ,class:"item-box-img" %>  
+    </div>
+    <% if @bandpost.video.attached? %>
+    <div class="item-img-content">
+      <video src="<%= rails_blob_path(@bandpost.video) %>" type="video/mp4" controls ></video>
+      
+    </div>
+    <% end %>
+      <% if current_user.id == @bandpost.user_id %>
+        <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
+      <% end %>
+  </div>
+  <%# /商品の概要 %>
