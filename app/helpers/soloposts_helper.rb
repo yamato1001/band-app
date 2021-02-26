@@ -1,0 +1,2 @@
+module SolopostsHelper
+end

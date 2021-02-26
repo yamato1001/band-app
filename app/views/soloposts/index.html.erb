@@ -15,31 +15,31 @@
       <li><%= link_to '楽器', "#", class: "musical-instrument-list" %></li>
     </ul>
     <ul class='lists-right'>
-      <li><%= link_to 'バンド投稿', new_bandpost_path, class: "band-post-btn"%></li>
-      <li><%= link_to 'ソロ一覧', soloposts_path, class: "solo-index" %></li>
+      <li><%= link_to 'ソロ投稿', "#", class: "band-post-btn"%></li>
+      <li><%= link_to 'バンド一覧', bandposts_path, class: "solo-index" %></li>
     </ul>
  </div>
 </div>
   <%# バンド一覧 %>
   <div class='item-contents'>
-    <h2 class='title'>バンド一覧</h2>
-    <%= link_to '新規投稿', new_bandpost_path, class: "subtitle" %>
+    <h2 class='title'>ソロ一覧</h2>
+    <%= link_to '新規投稿', "#", class: "subtitle" %>
     <ul class='item-lists'>
-<%if @bandposts.present? %>
-  <% @bandposts.each do |bandpost| %>
+<%if @soloposts.present? %>
+  <% @soloposts.each do |bandpost| %>
     <li class='list'>
-        <%= link_to bandpost_path(bandpost.id) do %>
+        <%= link_to "#" do %>
           <div class='item-img-content'>
-            <%= image_tag bandpost.image.variant(resize: '500x500'), class: "item-img" if bandpost.image.attached? %>
+            <%= image_tag solopost.image.variant(resize: '500x500'), class: "item-img" if solopost.image.attached? %>
           </div>
           <div class='band-info'>
             <h3 class='band-name'>
-              <%= bandpost.bandname %>
+              <%= solopost.nickname %>
             </h3>
             <div class='band-info2'>
-              <span><%= bandpost.genre.name %><span>
-              <span><%= bandpost.musical_instrument.name %><span>
-              <span><%= bandpost.area.name %><span>
+              <span><%= solopost.genre.name %><span>
+              <span><%= solopost.musical_instrument.name %><span>
+              <span><%= solopost.area.name %><span>
             </div>
           </div>
         <% end %>
