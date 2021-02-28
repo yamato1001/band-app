@@ -16,5 +16,6 @@ class Genre < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :bandposts
+  has_many :soloposts
 
 end

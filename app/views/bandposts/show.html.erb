@@ -34,7 +34,7 @@
       </tbody>
     </table>
     <div class="item-img-content">
-      <%= image_tag @bandpost.image ,class:"item-box-img" %>  
+      <%= image_tag @bandpost.image.variant(resize: '500x500') ,class:"item-box-img" %>  
     </div>
     <% if @bandpost.video.attached? %>
     <div class="item-img-content">

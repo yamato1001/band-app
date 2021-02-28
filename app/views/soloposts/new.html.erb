@@ -1,0 +1,88 @@
+<div class="items-sell-contents">
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">ソロの情報を入力</h2>
+    <%= form_with model: @solopost, local: true do |f| %>
+
+    
+    <%= render 'shared/error_messages', model: f.object %>
+    
+    <%# ソロ映像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        ソロ映像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :video, id:"item-image" %>
+      </div>
+    </div>
+    <%# /ソロ映像 %>
+    <%# 商品名と商品説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        ニックネーム
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :nickname, class:"items-text", id:"item-name" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          自己紹介
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :introduction, class:"items-text", id:"item-info" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /商品名と商品説明 %>
+
+    <%# バンドの詳細 %>
+    <div class="items-detail">
+      <div class="weight-bold-text">バンドの詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          ジャンル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="weight-bold-text">
+          募集楽器
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:musical_instrument_id, MusicalInstrument.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="weight-bold-text">
+          活動地域
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <div class="weight-bold-text">
+          好きなバンド
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :favorite_band, class:"items-text", id:"item-name" %>
+        <div class="weight-bold-text">
+        <div class="weight-bold-text">
+          活動歴
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :history, class:"items-text", id:"item-name" %>
+        <div class="weight-bold-text">
+          SNSアカウント
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :sns_account, class:"items-text", id:"item-name" %>
+      </div>
+    </div>
+    <%# /バンドの詳細 %>
+
+    
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+</div>
