@@ -35,6 +35,12 @@ class SolopostsController < ApplicationController
     end
   end
 
+  def destroy
+    @solopost = Solopost.find(params[:id])
+    @solopost.destroy
+    redirect_to root_path
+  end
+
   private
   def solopost_params
     params.require(:solopost).permit(:nickname, :introduction, :genre_id, :musical_instrument_id, :area_id, :favorite_band, :history, :sns_account, :video ).merge(user_id:current_user.id)
