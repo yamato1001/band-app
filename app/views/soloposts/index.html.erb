@@ -28,7 +28,7 @@
 <%if @soloposts.present? %>
   <% @soloposts.each do |solopost| %>
     <li class='list'>
-        <%= link_to "#" do %>
+        <%= link_to solopost_path(solopost.id) do %>
           
             <div class="item-img-content">
               <video src="<%= rails_blob_path(solopost.video) %>" type="video/mp4" controls ></video>

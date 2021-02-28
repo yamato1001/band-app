@@ -1,0 +1,53 @@
+<%= render "shared/header" %>
+
+<%# バンドの概要 %>
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @solopost.nickname %>
+    </h2>
+    <div class="item-explain-box">
+      <span><%= @solopost.introduction %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">ジャンル</th>
+          <td class="detail-value"><%= @solopost.genre.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">募集楽器</th>
+          <td class="detail-value"><%= @solopost.musical_instrument.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">活動地域</th>
+          <td class="detail-value"><%= @solopost.area.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">好きなバンド</th>
+          <td class="detail-value"><%= @solopost.favorite_band %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">活動歴</th>
+          <td class="detail-value"><%= @solopost.history %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">SNSアカウント</th>
+          <td class="detail-value"><%= @solopost.sns_account %></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <% if @solopost.video.attached? %>
+    <div class="item-img-content">
+      <video src="<%= rails_blob_path(@solopost.video) %>" type="video/mp4" controls ></video>
+      
+    </div>
+    <% end %>
+      <% if current_user.id == @solopost.user_id %>
+        <%= link_to "商品の編集", edit_solopost_path(@solopost.id), method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", solopost_path(@solopost.id), method: :delete, class:"item-destroy" %>
+      <% end %>
+  </div>
+  <%# /商品の概要 %>
