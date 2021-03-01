@@ -37,7 +37,10 @@
         </tr>
       </tbody>
     </table>
-    
+
+    <div class="item-img-content">
+      <%= image_tag @solopost.image.variant(resize: '500x500') ,class:"item-box-img" %>  
+    </div>
     <% if @solopost.video.attached? %>
     <div class="item-img-content">
       <video src="<%= rails_blob_path(@solopost.video) %>" type="video/mp4" controls ></video>
@@ -45,7 +48,7 @@
     </div>
     <% end %>
       <% if current_user.id == @solopost.user_id %>
-        <%= link_to "商品の編集", edit_solopost_path(@solopost.id), method: :get, class: "item-red-btn" %>
+        <%= link_to "ソロの編集", edit_solopost_path(@solopost.id), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", solopost_path(@solopost.id), method: :delete, class:"item-destroy" %>
       <% end %>

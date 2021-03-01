@@ -29,9 +29,9 @@
     <li class='list'>
         <%= link_to solopost_path(solopost.id) do %>
           
-            <div class="item-img-content">
-              <video src="<%= rails_blob_path(solopost.video) %>" type="video/mp4" controls ></video>
-            </div>
+            <div class='item-img-content'>
+            <%= image_tag solopost.image.variant(resize: '500x500'), class: "item-img" if solopost.image.attached? %>
+          </div>
          
           <div class='band-info'>
             <h3 class='band-name'>

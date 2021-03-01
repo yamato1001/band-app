@@ -11,7 +11,7 @@ class SolopostsController < ApplicationController
     @solopost = Solopost.new(solopost_params)
 
     if @solopost.save
-      redirect_to root_path
+      redirect_to soloposts_path
     else
       render :new
     end
@@ -43,6 +43,6 @@ class SolopostsController < ApplicationController
 
   private
   def solopost_params
-    params.require(:solopost).permit(:nickname, :introduction, :genre_id, :musical_instrument_id, :area_id, :favorite_band, :history, :sns_account, :video ).merge(user_id:current_user.id)
+    params.require(:solopost).permit(:nickname, :introduction, :genre_id, :musical_instrument_id, :area_id, :favorite_band, :history, :sns_account, :image, :video ).merge(user_id:current_user.id)
   end
 end
