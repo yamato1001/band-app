@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root to: "bandposts#index"
   resources :bandposts
   resources :soloposts
+  resources :users, only: :show
 end

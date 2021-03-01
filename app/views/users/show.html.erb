@@ -1,0 +1,50 @@
+<%= render "shared/header" %>
+
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <%if @bandposts.present? %>
+  <% @bandposts.each do |bandpost| %>
+    <li class='list'>
+        <%= link_to bandpost_path(bandpost.id) do %>
+          <div class='item-img-content'>
+            <%= image_tag bandpost.image.variant(resize: '500x500'), class: "item-img" if bandpost.image.attached? %>
+          </div>
+          <div class='band-info'>
+            <h3 class='band-name'>
+              <%= bandpost.bandname %>
+            </h3>
+            <div class='band-info2'>
+              <span><%= bandpost.genre.name %><span>
+              <span><%= bandpost.musical_instrument.name %><span>
+              <span><%= bandpost.area.name %><span>
+            </div>
+          </div>
+        <% end %>
+    </li>
+  <% end %>
+  <% end %>
+
+  <%if @soloposts.present? %>
+  <% @soloposts.each do |solopost| %>
+    <li class='list'>
+        <%= link_to solopost_path(solopost.id) do %>
+          
+            <div class="item-img-content">
+              <video src="<%= rails_blob_path(solopost.video) %>" type="video/mp4" controls ></video>
+            </div>
+         
+          <div class='band-info'>
+            <h3 class='band-name'>
+              <%= solopost.nickname %>
+            </h3>
+            <div class='band-info2'>
+              <span><%= solopost.genre.name %><span>
+              <span><%= solopost.musical_instrument.name %><span>
+              <span><%= solopost.area.name %><span>
+            </div>
+          </div>
+        <% end %>
+    </li>
+  <% end %>
+  <% end %>
+</div>
