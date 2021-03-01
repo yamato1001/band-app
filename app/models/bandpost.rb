@@ -3,6 +3,14 @@ class Bandpost < ApplicationRecord
   has_one_attached :image
   has_one_attached :video
 
+  def self.search(search)
+    if search != ""
+      Bandpost.where('bandname LIKE(?)', "%#{search}%")
+    else
+      Bandpost.all
+    end
+  end
+
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre

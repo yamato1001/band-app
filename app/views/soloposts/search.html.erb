@@ -1,0 +1,24 @@
+<%= render "shared/header" %>
+<%= form_with(url: search_soloposts_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "ニックネームを検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+
+<div class='nav'>
+    <ul class='lists-left'>
+      <li><%= link_to 'ジャンル', "#", class: "genre-list" %></li>
+      <li><%= link_to '地域', "#", class: "area-list" %></li>
+      <li><%= link_to '楽器', "#", class: "musical-instrument-list" %></li>
+    </ul>
+    <ul class='lists-right'>
+      <li><%= link_to 'ソロ投稿', new_solopost_path, class: "band-post-btn"%></li>
+      <li><%= link_to 'バンド一覧へ', bandposts_path, class: "solo-index" %></li>
+    </ul>
+ </div>
+</div>
+
+<div class="list">
+  <% @soloposts.each do |solopost| %>
+    <%= render partial: "solopost", locals: { solopost: solopost } %>
+  <% end %>
+</div>

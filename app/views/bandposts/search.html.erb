@@ -1,0 +1,25 @@
+<%= render "shared/header" %>
+
+<%= form_with(url: search_bandposts_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "バンド名を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+
+<div class='nav'>
+    <ul class='lists-left'>
+      <li><%= link_to 'ジャンル', "#", class: "genre-list" %></li>
+      <li><%= link_to '地域', "#", class: "area-list" %></li>
+      <li><%= link_to '楽器', "#", class: "musical-instrument-list" %></li>
+    </ul>
+    <ul class='lists-right'>
+      <li><%= link_to 'バンド投稿', new_bandpost_path, class: "band-post-btn"%></li>
+      <li><%= link_to 'ソロ一覧', soloposts_path, class: "solo-index" %></li>
+    </ul>
+ </div>
+</div>
+
+<div class="list">
+  <% @bandposts.each do |bandpost| %>
+    <%= render partial: "bandpost", locals: { bandpost: bandpost } %>
+  <% end %>
+</div>

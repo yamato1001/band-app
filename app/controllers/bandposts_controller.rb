@@ -44,6 +44,10 @@ class BandpostsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @bandposts = Bandpost.search(params[:keyword])
+  end
+
   private
   def bandpost_params
     params.require(:bandpost).permit(:bandname, :introduction, :genre_id, :musical_instrument_id, :area_id, :history, :sns_account, :image, :video ).merge(user_id:current_user.id)

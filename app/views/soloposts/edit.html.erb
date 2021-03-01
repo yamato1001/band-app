@@ -60,7 +60,7 @@
         </div>
         <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         <div class="weight-bold-text">
-          募集楽器
+          担当楽器
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:musical_instrument_id, MusicalInstrument.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>

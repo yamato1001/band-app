@@ -41,6 +41,10 @@ class SolopostsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @soloposts = Solopost.search(params[:keyword])
+  end
+
   private
   def solopost_params
     params.require(:solopost).permit(:nickname, :introduction, :genre_id, :musical_instrument_id, :area_id, :favorite_band, :history, :sns_account, :image, :video ).merge(user_id:current_user.id)

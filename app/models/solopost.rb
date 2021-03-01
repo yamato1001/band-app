@@ -3,6 +3,14 @@ class Solopost < ApplicationRecord
   has_one_attached :image
   has_one_attached :video
 
+  def self.search(search)
+    if search != ""
+      Solopost.where('nickname LIKE(?)', "%#{search}%")
+    else
+      Solopost.all
+    end
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
   belongs_to :area

@@ -1,0 +1,19 @@
+<% @bandposts.each do |bandpost| %>
+    <li class='list'>
+        <%= link_to bandpost_path(bandpost.id) do %>
+          <div class='item-img-content'>
+            <%= image_tag bandpost.image.variant(resize: '500x500'), class: "item-img" if bandpost.image.attached? %>
+          </div>
+          <div class='band-info'>
+            <h3 class='band-name'>
+              <%= bandpost.bandname %>
+            </h3>
+            <div class='band-info2'>
+              <span><%= bandpost.genre.name %><span>
+              <span><%= bandpost.musical_instrument.name %><span>
+              <span><%= bandpost.area.name %><span>
+            </div>
+          </div>
+        <% end %>
+    </li>
+  <% end %>

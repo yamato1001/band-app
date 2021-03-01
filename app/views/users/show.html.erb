@@ -5,6 +5,7 @@
   <%if @bandposts.present? %>
   <% @bandposts.each do |bandpost| %>
     <li class='list'>
+        <h2 class='title'>バンド一覧</h2>
         <%= link_to bandpost_path(bandpost.id) do %>
           <div class='item-img-content'>
             <%= image_tag bandpost.image.variant(resize: '500x500'), class: "item-img" if bandpost.image.attached? %>
@@ -27,8 +28,8 @@
   <%if @soloposts.present? %>
   <% @soloposts.each do |solopost| %>
     <li class='list'>
+        <h2 class='title'>ソロ一覧</h2>
         <%= link_to solopost_path(solopost.id) do %>
-          
             <div class='item-img-content'>
             <%= image_tag solopost.image.variant(resize: '500x500'), class: "item-img" if solopost.image.attached? %>
           </div>

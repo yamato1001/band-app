@@ -4,7 +4,15 @@ Rails.application.routes.draw do
   devise_for :users
   get 'bandposts/index'
   root to: "bandposts#index"
-  resources :bandposts
-  resources :soloposts
+  resources :bandposts do
+    collection do
+      get 'search'
+    end
+  end
+  resources :soloposts do
+    collection do
+      get 'search'
+    end
+  end
   resources :users, only: :show
 end
