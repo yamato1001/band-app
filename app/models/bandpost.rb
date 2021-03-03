@@ -19,4 +19,5 @@ class Bandpost < ApplicationRecord
 
   validates :bandname, :introduction, presence: true
   validates :genre_id, :area_id, :musical_instrument_id, numericality: { other_than: 1 } 
+  validates :image, :video, presence: true
 end
