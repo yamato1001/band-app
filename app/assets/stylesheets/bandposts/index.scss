@@ -1,3 +1,7 @@
+.main {
+  background: #DEB887;
+}
+
 .search-form {
   text-align: center;
   padding-top: 32px;
@@ -6,14 +10,13 @@
 .search-form .search-input {
   width: 30%;
   margin-right: 10px;
+  height: 40px;
 }
 
 .search-form .search-btn {
   width: 10%;
+  height: 40px;
 }
-
-
-
 
 .nav {
   font-size: 18px;
@@ -34,17 +37,39 @@
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
+  font-size: 15px;
 }
 
 .area-list {
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
+  font-size: 15px;
 }
 
 .musical-instrument-list {
   text-decoration: none;
   color: #333333;
+  font-size: 15px;
+}
+
+.list-rights {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+
+.band-post-btn {
+  text-decoration: none;
+  color: #333333;
+  font-size: 15px;
+}
+
+.solo-index {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-size: 15px;
 }
 
 .subtitle {
@@ -54,3 +79,59 @@
   color: #3ccace;
   font-weight: bold;
 }
+
+.item-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.item-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.item-contents>.subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
+  text-decoration: none;
+  color: #3ccace;
+  font-weight: bold;
+}
+
+.item-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+
+.item-img-content {
+  position: relative;
+}
+
+.item-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.item-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.item-name {
+  font-size: 2.5vh;
+}
+
