@@ -63,3 +63,4 @@ gem 'carrierwave'
 gem 'active_hash'
 gem 'ransack'
 gem 'ancestry'
+gem "aws-sdk-s3", require: false
