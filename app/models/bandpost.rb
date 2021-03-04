@@ -2,12 +2,10 @@ class Bandpost < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_one_attached :video
-  belongs_to :category
 
   def self.search(search)
     if search != ""
       Bandpost.where('bandname LIKE(?)', "%#{search}%")
-      Bandpost.where('@bandpost.genre.name LIKE(?)', "%#{search}%")
     else
       Bandpost.all
     end
