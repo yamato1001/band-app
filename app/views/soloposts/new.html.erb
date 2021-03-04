@@ -34,7 +34,7 @@
       </div>
     </div>
     <%# /ソロ映像 %>
-    <%# 商品名と商品説明 %>
+    <%# ソロの詳細 %>
     <div class="new-items">
       <div class="weight-bold-text">
         ニックネーム
@@ -49,9 +49,7 @@
         <%= f.text_area :introduction, class:"items-text", id:"item-info" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
-    <%# /商品名と商品説明 %>
 
-    <%# バンドの詳細 %>
     <div class="items-detail">
       <div class="weight-bold-text">バンドの詳細</div>
       <div class="form">
@@ -76,7 +74,6 @@
         </div>
         <%= f.text_area :favorite_band, class:"items-text", id:"item-name" %>
         <div class="weight-bold-text">
-        <div class="weight-bold-text">
           活動歴
           <span class="indispensable">必須</span>
         </div>
@@ -88,7 +85,7 @@
         <%= f.text_area :sns_account, class:"items-text", id:"item-name" %>
       </div>
     </div>
-    <%# /バンドの詳細 %>
+    <%# /ソロの詳細 %>
 
     
     <%# 下部ボタン %>
