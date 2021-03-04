@@ -60,17 +60,17 @@
           ジャンル
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"genre-category"}) %>
         <div class="weight-bold-text">
           募集楽器
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:musical_instrument_id, MusicalInstrument.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.collection_select(:musical_instrument_id, MusicalInstrument.all, :id, :name, {}, {class:"select-box", id:"musical-instrument-category"}) %>
         <div class="weight-bold-text">
           活動地域
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"area-category"}) %>
         <div class="weight-bold-text">
           活動歴
           <span class="indispensable">必須</span>

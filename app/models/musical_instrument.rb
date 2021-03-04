@@ -1,6 +1,6 @@
 class MusicalInstrument < ActiveHash::Base
   self.data = [
-    { id: 1, name: '--' },
+    { id: 1, name: '楽器' },
     { id: 2, name: 'ボーカル' },
     { id: 3, name: 'ギター' },
     { id: 4, name: 'ベース' },

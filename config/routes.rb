@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   resources :bandposts do
     collection do
       get 'search'
+      get 'select_category_index'
     end
   end
   resources :soloposts do
     collection do
       get 'search'
+      get 'select_category_index'
     end
   end
   resources :users, only: :show

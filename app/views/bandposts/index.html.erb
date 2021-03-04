@@ -3,15 +3,15 @@
 <div class='main'>
 
   <div class='search-bar-contents'>
-    <%= form_with(url: search_bandposts_path, local: true, method: :get, class: "search-form") do |form| %>
-      <%= form.text_field :keyword, placeholder: "バンド名を検索する", class: "search-input" %>
-      <%= form.submit "検索", class: "search-btn" %>
-    <% end %>
+    <%= form_with(url: search_bandposts_path, local: true, method: :get, class: "search-form") do |f| %>
+      <%= f.text_field :keyword, placeholder: "バンド名を検索する", class: "search-input" %>
+      <%= f.submit "検索", class: "search-btn" %>
+      <% end %>
   </div>
-
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'ジャンル', "#", class: "genre-list" %></li>
+      <li class="genre-list" id="genre-list">ジャンル
+      </li>
       <li><%= link_to '地域', "#", class: "area-list" %></li>
       <li><%= link_to '楽器', "#", class: "musical-instrument-list" %></li>
     </ul>
@@ -20,6 +20,7 @@
       <li><%= link_to 'ソロ一覧', soloposts_path, class: "solo-index" %></li>
     </ul>
   </div>
+  
 </div>
   <%# バンド一覧 %>
   <div class='item-contents'>
