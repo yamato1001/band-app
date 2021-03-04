@@ -48,7 +48,7 @@
     </div>
     <% end %>
       <% if current_user.id == @solopost.user_id %>
-        <%= link_to "ソロの編集", edit_solopost_path(@solopost.id), method: :get, class: "item-red-btn" %>
+        <%= link_to "ソロプレイヤー情報の編集", edit_solopost_path(@solopost.id), method: :get, class: "item-green-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", solopost_path(@solopost.id), method: :delete, class:"item-destroy" %>
       <% end %>

@@ -1,17 +1,18 @@
 <%= render "shared/header" %>
 
-<div class="contents row">
+<div class='item-contents'>
   <p><%= @nickname %>さんの投稿一覧</p>
+  <h2 class='title'>バンド投稿一覧</h2>
+  <ul class='item-lists'>
   <%if @bandposts.present? %>
   <% @bandposts.each do |bandpost| %>
     <li class='list'>
-        <h2 class='title'>バンド一覧</h2>
         <%= link_to bandpost_path(bandpost.id) do %>
           <div class='item-img-content'>
             <%= image_tag bandpost.image.variant(resize: '500x500'), class: "item-img" if bandpost.image.attached? %>
           </div>
-          <div class='band-info'>
-            <h3 class='band-name'>
+          <div class='item-info'>
+            <h3 class='item-name'>
               <%= bandpost.bandname %>
             </h3>
             <div class='band-info2'>
@@ -24,15 +25,19 @@
     </li>
   <% end %>
   <% end %>
+</div>
 
+<div class='item-contents'>
+  <h2 class='title'>ソロ投稿一覧</h2>
+  <ul class='item-lists'>
   <%if @soloposts.present? %>
   <% @soloposts.each do |solopost| %>
     <li class='list'>
-        <h2 class='title'>ソロ一覧</h2>
         <%= link_to solopost_path(solopost.id) do %>
+          
             <div class='item-img-content'>
             <%= image_tag solopost.image.variant(resize: '500x500'), class: "item-img" if solopost.image.attached? %>
-          </div>
+            </div>
          
           <div class='band-info'>
             <h3 class='band-name'>

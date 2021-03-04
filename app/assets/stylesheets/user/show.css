@@ -3,22 +3,6 @@
   width: 100vw;
 }
 
-.search-form {
-  text-align: center;
-  padding-top: 32px;
-}
-
-.search-form .search-input {
-  width: 30%;
-  margin-right: 10px;
-  height: 40px;
-}
-
-.search-form .search-btn {
-  width: 10%;
-  height: 40px;
-}
-
 .nav {
   font-size: 18px;
   display: flex;
@@ -28,54 +12,12 @@
   padding: 1vh 0;
 }
 
-.lists-left {
-  display: flex;
-  min-width: 200px;
-
-}
-
-.genre-list {
+.subtitle {
+  font-size: 3vh;
+  margin: 1vh 0;
   text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-size: 15px;
-}
-
-.area-list {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-size: 15px;
-}
-
-.musical-instrument-list {
-  text-decoration: none;
-  color: #333333;
-  font-size: 15px;
-}
-
-.pull-down-list{
-  padding: 15px 35px 15px 15px;
-  border: 1px solid #eee;
-}
-
-.list-rights {
-  display: flex;
-  list-style: none;
-  align-items: flex-end;
-}
-
-.band-post-btn {
-  text-decoration: none;
-  color: #333333;
-  font-size: 15px;
-}
-
-.solo-index {
-  text-decoration: none;
-  margin-right: 3vw;
-  color: #333333;
-  font-size: 15px;
+  color: #3ccace;
+  font-weight: bold;
 }
 
 .item-contents {
