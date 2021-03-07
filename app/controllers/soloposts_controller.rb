@@ -1,4 +1,7 @@
 class SolopostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_solopost, only: [:show, :edit, :update, :destroy]
+
   def index
     @soloposts = Solopost.all.order("created_at DESC")
   end
@@ -19,15 +22,12 @@ class SolopostsController < ApplicationController
   end
 
   def show
-    @solopost = Solopost.find(params[:id])
   end
 
   def edit
-    @solopost = Solopost.find(params[:id])
   end
 
   def update
-    @solopost = Solopost.find(params[:id])
     if @solopost.update(solopost_params)
       redirect_to solopost_path
     else
@@ -36,9 +36,8 @@ class SolopostsController < ApplicationController
   end
 
   def destroy
-    @solopost = Solopost.find(params[:id])
     @solopost.destroy
-    redirect_to root_path
+    redirect_to solopost_path
   end
 
   def search
@@ -49,4 +48,9 @@ class SolopostsController < ApplicationController
   def solopost_params
     params.require(:solopost).permit(:nickname, :introduction, :genre_id, :musical_instrument_id, :area_id, :favorite_band, :history, :sns_account, :image, :video ).merge(user_id:current_user.id)
   end
+
+  def set_solopost
+    @solopost = Solopost.find(params[:id])
+  end
+
 end
